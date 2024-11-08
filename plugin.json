@@ -1,0 +1,12 @@
+{
+    "ID": "9c922cd2-9834-40a8-84d5-6748746c070e",
+    "ActionKeyword": "pgen",
+    "Name": "Password Generator",
+    "Description": "Password generation utility",
+    "Author": "Forgenet",
+    "Version": "0.0.1",
+    "Language": "python",
+    "Website": "https://github.com/F0rgenet/PasswordGenerator",
+    "IcoPath": "assets/icon.png",
+    "ExecuteFileName": "main.py"
+}
