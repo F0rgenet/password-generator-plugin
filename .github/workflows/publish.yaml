@@ -1,5 +1,8 @@
 name: Publish Release
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   push:
@@ -38,4 +41,4 @@ jobs:
           files: 'Flow.Launcher.Plugin.PasswordGenerator.zip'
           tag_name: "v${{steps.version.outputs.prop}}"
         env:
-          GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
