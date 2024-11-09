@@ -1,14 +1,17 @@
 import sys, os
 from pathlib import Path
 
+import sys, os
+
+parent_folder_path = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(parent_folder_path)
+sys.path.append(os.path.join(parent_folder_path, 'lib'))
+sys.path.append(os.path.join(parent_folder_path, 'plugin'))
+
 from flowlauncher import FlowLauncher
 import webbrowser
 import pyperclip
 import re
-
-plugindir = Path.absolute(Path(__file__).parent)
-paths = (".", "lib", "plugin")
-sys.path = [str(plugindir / p) for p in paths] + sys.path
 
 
 class PasswordGenerator(FlowLauncher):
@@ -16,7 +19,8 @@ class PasswordGenerator(FlowLauncher):
     def query(self, query: str = ""):
         return [
             {
-                "Title": "Hello World, this is where title goes. {}".format(('Your query is: ' + query , query)[query == '']),
+                "Title": "Hello World, this is where title goes. {}".format(
+                    ('Your query is: ' + query, query)[query == '']),
                 "SubTitle": "This is where your subtitle goes, press enter to open Flow's url",
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
@@ -39,8 +43,7 @@ class PasswordGenerator(FlowLauncher):
             }
         ]
 
-    @staticmethod
-    def open_url(url):
+    def open_url(self, url):
         webbrowser.open(url)
 
 
